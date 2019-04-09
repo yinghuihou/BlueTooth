@@ -17,12 +17,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.iswitch.ui.SwitchButton;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,6 +84,8 @@ public class MainActivity extends Activity implements OnClickListener {
     private ImageView imageView2;
     private ImageView imageView3;
     private ImageView imageView4;
+    private SwitchButton suo;
+    private ImageView icon_suo;
 
 
     private boolean dianjikai;
@@ -92,6 +97,18 @@ public class MainActivity extends Activity implements OnClickListener {
             @Override
             public void onClick(View view) {
                 disconnect();
+            }
+        });
+        suo = findViewById(R.id.suo);
+        icon_suo = findViewById(R.id.suo_gaun);
+        suo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    icon_suo.setImageResource(R.drawable.suokai);
+                }else {
+                    icon_suo.setImageResource(R.drawable.suoguan);
+                }
             }
         });
 
